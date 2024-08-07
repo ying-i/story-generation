@@ -1,0 +1,61 @@
+{% from "macros/svgs.html" import moon, sun%}
+{% macro header(email, theme) %}
+<!-- html of navigation bar -->
+<!-- 
+    macros are used to define reusable blocks
+    define a macro named header() with parameters "email" and "theme" 
+-->
+<header class="header">
+    <div class="nav-container">
+        <a href="{{ url_for('pages.index') }}" class="header__logo">   
+        <!--the index function is defined in a blueprint named pages 
+        pages: is the blueprint name
+        index: is the name of the route/endpoint within the blueprint
+        -->
+        <img class="logo__icon" src="/static/logo.svg" alt="the web logo"/>
+            <span class="logo__name">YourStories</span>
+        </a>
+        <nav class="nav">
+            {% if not email %}
+                <a
+                    href="{{ url_for('pages.login') }}"
+                    class="nav__link {{ 'nav__link--active' if request.path == url_for('pages.login') }}"
+                >
+                    <span class="nav__item">Log in</span>
+                </a>
+                <a
+                    href="{{ url_for('pages.register') }}"
+                    class="nav__link {{ 'nav__link--active' if request.path == url_for('pages.register') }}"
+                >
+                    <span class="nav__item">Register</span>
+                </a>
+            {% else %}
+                <a 
+                    href="{{ url_for('pages.index') }}"
+                    class="nav__link {{ 'nav__link--active' if request.path == url_for('pages.index') }}"
+                >
+                <!-- if the current URL path matches the path for the "pages.index" route. 
+                    If it does, it includes the "nav__link--active" class(there is nav__link--active in main.css),
+                    otherwise, it doesn't include it. -->
+                    <span class="nav__item">Stories</span>
+                </a>
+                <a
+                    href="{{ url_for('pages.logout') }}"
+                    class="nav__link"
+                >
+                    <span class="nav__item">Log out</span>
+                </a>
+            {% endif %}
+            <a href="{{ url_for('pages.toggle_theme', current_page=request.path) }}" class="nav__link">
+                <span class="nav__item">
+                    {% if theme == "dark" %}
+                        {{sun("nav__icon")}}
+                    {% else %}
+                        {{moon("nav__icon")}}
+                    {% endif %}
+                </span>
+            </a>
+        </nav>
+    </div>
+</header>
+{% endmacro %}

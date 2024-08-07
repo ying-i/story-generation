@@ -1,0 +1,2 @@
+FLASK_APP=story_generator
+FLASK_ENV=development

@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block head_content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stories.css')}}"/>
+{% endblock %}
+
+{% block main_content %}
+    {% if all_stories %}
+    <!-- stories_data is rendring from index() function in routes.py -->
+        <table class="table">
+            <colgroup>
+                <col style="width: 15%">
+                <col style="width: 55%">
+                <col style="width: 10%">
+                <col style="width: 10%">
+                <col style="width: 10%">
+
+            </colgroup>
+            <thead>
+                <th class="table__cell table__cell--header">Images</th>
+                <th class="table__cell table__cell--header">My Stories</th>
+                <th class="table__cell table__cell--header">Date</th>
+                <th class="table__cell table__cell--header"></th>
+                <th class="table__cell table__cell--header"></th>
+      
+
+            </thead>
+            <tbody>
+                {% for story in all_stories %}
+                    <tr class="table_cell table__row">
+                        <!-- display image: using relational path instead of absolute path! -->
+                        <td class="table__cell"><img src="{{ url_for('static', filename='uploads/images/' + story.image) }}" alt="{{ story.image }}"></td>
+                        <td class="table__cell">
+                            <div class="table__generatedStory">
+                                <!-- split the story content into paragraphs -->
+                                {# {% for paragraph in story.result.split('\n') %} #}
+                                <!-- split the story content into paragraphs based on newline characters -->
+                                {% set paragraphs = story.result.split('\n')%}
+                                <!-- [:1] only display first paragraph -->
+                                {% for paragraph in paragraphs[:1] %}
+                                    <p class="table__generatedStory">{{ paragraph|safe }}</p>
+                                {% endfor %}
+                                {% if paragraphs|length > 1 %}
+                                    <p>......</p>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <!-- |safe filter will make the result content more formatting -->
+                        <td class="table__cell"><p class="teble__date">{{ story.date }}</p></td>
+                        <td class="table__cell">
+                            {% if story.type=='story' %}
+                                <a href="{{ url_for('pages.story', _id=story._id) }}" class="table__link">VIEW</a>
+                            {% else %}
+                                <a href="{{ url_for('pages.story_pdf', _id=story._id) }}" class="table__link">VIEW</a>
+                            {% endif %}
+                        </td>
+                        <!-- 'pages.story : story() function in routes.py  -->
+                        <td class="table__cell">
+                            {% if story.type=='story' %}
+                                <a href="{{ url_for('pages.delete', _id=story._id) }}" class="table__link">DELETE</a>
+                            {% else %}
+                                <a href="{{ url_for('pages.delete_pdf', _id=story._id) }}" class="table__link">DELETE</a>
+                            {% endif %}
+                            
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="table__empty">You haven't added any stories yet.
+            <br>
+            <a href="{{ url_for('pages.create_story') }}" class="link">Create One!</a>
+        </p>
+
+    {% endif %}
+        <a href="{{ url_for('pages.create_story') }}" class="button button--add">
+            <span>+</span>
+        </a>
+
+{% endblock %}

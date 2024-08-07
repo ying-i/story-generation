@@ -1,0 +1,33 @@
+{% macro render_text_field(field) %}
+<!-- define a macro called 'render_text_field' that takes one parameter: field -->
+<!-- rendering a text input field with its lable and associated errors -->
+<div class="form__group">
+    {{ field.label(class_="form__label") }}
+    {{ field(class_="form__field")}}
+    
+    {% for error in field.errors %}
+        <span class="form__error">{{ error }}</span>
+    {% endfor %}
+    <!-- Inside the macro:
+        The label for the field (field.label()) and the input field itself (field()) are rendered.
+        If there are any errors associated with the field, they are displayed.
+     -->
+</div>
+{% endmacro %}
+
+<!-- define a macro named render_multiple_file_field that takes two parameters: field, multiple -->
+{% macro render_multiple_file_field(field, multiple=False) %}
+<div class="form__group">
+    <!--  renders the label for the input field with the class "form__label". -->
+    {{ field.label(class_="form__label") }}
+    <!-- create an input element of type of "type" -->
+    <input type="file" name="{{ field.name }}" multiple="multiple" class="form__field">
+    {% for error in field.errors %}
+        <span class="form__error">{{ error }}</span>
+    {% endfor %}
+</div>
+{% endmacro %}
+
+
+
+

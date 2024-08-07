@@ -1,0 +1,223 @@
+/* .form__div {
+    background-color: rgb(58, 152, 97);
+} */
+
+.form { 
+    margin: 0 auto;
+    max-width: 24.75rem;
+    border: var(--border);
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border-width: 1.7px;
+
+    background: var(--background-color);
+    /* background-color:rgb(195, 174, 227); */
+
+    /* box shadow */
+    /* box-shadow: 0.75rem 0.75rem 5px -0.2rem var(--accent-colour); */
+}
+
+.form__container {
+    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+}
+
+/* the following media queries allow for more padding inside the form as the window size increase */
+/* when the screen width is at least 20.75em, the padding-left will be 2rem. */
+/* normally, width use em */
+@media screen and (min-width: 20.75em){
+    .form__container{
+        padding-left: 2rem;
+    }
+}
+
+/* when the screen is at least  24.75em, the paddingleft will be 2.5rem */
+@media screen and (min-width: 24.75em) {
+    .form__container {
+        padding-left: 2.5rem;
+    }
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+}
+
+.form__label {
+    margin-bottom: 0.3rem;
+}
+
+/* give every fields border when be focused */
+.form__field {
+    outline: none; 
+    border: none;
+    /* border-bottom: 3px solid #b52424; */
+    /* font-size will be the same as its parent element */
+    font-size: inherit;
+    font-family: inherit;
+
+    padding: 0.5rem 0.5rem;
+
+    background: var(--background-color);
+    /* background:#ebdef0; */
+    border-radius: 10px
+}
+
+.form__field:focus {
+    /* border: var(--border); */
+    border: 3px solid #d69cd6;
+    border-radius: 10px;
+
+}
+
+.form__field:hover {
+    background: var(--background-color-hover);
+}
+
+.form__small {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+  }
+  
+  .form__link {
+    text-decoration: none;
+    color: var(--accent-color);
+  }
+  
+  .form__link:hover {
+    color: #d69cd6;;
+  }
+  
+  .form__error {
+    margin-top: 0.5rem;
+  }
+  
+  .form__error,
+  .form__flash {
+    display: block;
+    padding: 0.5rem;
+    color: var(--text);
+  }
+  
+  .form__error,
+  .form__flash--danger {
+    /* background: var(--accent-colour); */
+    background:#d6ffd8;
+    /* the errors color, such as error: this field is required */
+    border-radius: 10px;
+  }
+  
+  .form__flash {
+    margin: 0.5rem;
+  }
+  
+  .form__flash--success {
+    background: var(--accent-colour-2);
+  }
+
+.button--form {
+    /* put the button on the right */
+    margin: 2rem 0 0 auto;
+    padding: 0.5rem 1rem;
+    border:none;
+    border-radius: 10px;
+    /* background-color: rgb(27, 25, 25); */
+    background: var(--background-color);
+    color:white;
+    font-weight: bold;
+}
+
+.button--form:hover {
+    background: var(--background-color-hover)
+}
+
+.newStoryPdf__link {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight:bold;
+    font-family:cursive;
+    color: #49cdcd;
+    text-decoration: none;
+}
+
+.newStoryPdf__link:hover {
+    color:  #f2b7ee;
+}
+
+.elements__explaination {
+    margin-top: 3rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+}
+
+.temperature__explaination h3{
+    font-size: 1.3rem;
+    font-weight:bold;
+    font-family:cursive;
+}
+
+.max_new_tokens__explaination {
+    margin-top: 0.5rem;
+}
+
+.max_new_tokens__explaination h3{
+    font-size: 1.3rem;
+    font-weight:bold;
+    font-family:cursive;
+}
+
+.top_p__explaination {
+    margin-top: 0.5rem;
+}
+
+.top_p__explaination h3{
+    font-size: 1.3rem;
+    font-weight:bold;
+    font-family:cursive;
+}
+
+.repetition_penalty__explaination {
+    margin-top: 0.5rem;
+}
+
+.repetition_penalty__explaination h3{
+    font-size: 1.3rem;
+    font-weight:bold;
+    font-family:cursive;
+}
+
+.chunk_size__explaination {
+    margin-top: 0.5rem;
+}
+
+.chunk_size__explaination h3{
+    font-size: 1.3rem;
+    font-weight:bold;
+    font-family:cursive;
+}
+
+.chunk_overlap__explaination {
+    margin-top: 0.5rem;
+}
+
+.chunk_overlap__explaination h3{
+    font-size: 1.3rem;
+    font-weight:bold;
+    font-family:cursive;
+}
+
+.top_k__explaination {
+    margin-top: 0.5rem;
+}
+
+.top_k__explaination h3{
+    font-size: 1.3rem;
+    font-weight:bold;
+    font-family:cursive;
+}
+

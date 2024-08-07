@@ -1,0 +1,50 @@
+.table {
+    max-width: 90rem;
+    width: 100%;
+    margin: 0 auto;
+    /* 0 is top and bottom margins
+        auto is left and right margins*/
+    border-spacing: 0;
+}
+
+.story__date {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-family:fantasy;
+}
+
+.story__image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    max-width: 20rem;
+    max-height: 20rem;
+}
+
+.story__pdf {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-bottom: 2rem; */
+    text-align: center;
+    font-weight: 600;
+    color: #4d93e3;
+    text-decoration: none;
+}
+
+.story__pdf:hover{
+    color: #e34d81;
+}
+
+
+.story__result {
+    margin-top: 2rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+.table__generatedStory {
+    margin-bottom: 15px;
+}
+

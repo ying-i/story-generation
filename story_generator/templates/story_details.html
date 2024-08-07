@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block head_content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/story_details.css')}}"/>
+{% endblock %}
+
+{% block main_content %}
+<table class="table">
+    <tbody>
+        <tr>
+            <td>
+                <p class="story__date">{{ story.date }}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img class="story__image" src="{{ url_for('static', filename='uploads/images/' + story.image) }}" alt="{{ story.image }}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!-- story is rendring form story(_id: str) function in routes.py -->
+                <div class="story__result">
+                    <!-- split the story content into paragraphs based on newline characters -->
+                    {% set paragraphs = story.result.split('\n')%}
+                    {% for paragraph in paragraphs %}
+                        <p class="table__generatedStory">{{ paragraph|safe }}</p>
+                    {% endfor %}
+                </div>
+            </td>
+        </tr>   
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% from "macros/fields.html" import render_text_field, render_multiple_file_field %}
+
+{% extends "layout.html" %}
+
+{% block head_content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css')}}"/>
+{% endblock %}
+
+{% block main_content %}
+    <div class="form__div">
+        <!--step1. define a StoryForm class using Flask-WTF's FlaskForm in forms.py
+            step2. using form in template(new_story.html) -->
+        <form name="create_story_pdf" method="post" novalidate class="form" enctype="multipart/form-data">
+        <!-- if  you need to upload file in form, you must include "enctype="multipart/form-data"!!!-->
+        <!-- novalidate:  to disable browser validation. because we prefer to handle form validation using Flask-wtf -->
+            <div class="form__container">
+                <!-- {{ form.hidden_tag() }} : got the CSFR protection -->
+                {{ form.hidden_tag() }}  
+                <!-- call render_text_field that is in macros/fields.html  -->
+                {{ render_text_field(form.image) }}
+                <!-- when call render_multiple_file_field macro, make sure multiple=multiple-->
+                {{ render_multiple_file_field(form.pdfs, multiple=True) }}
+                {{ render_text_field(form.temperature) }}
+                {{ render_text_field(form.max_new_tokens) }}
+                {{ render_text_field(form.top_p) }}
+                {{ render_text_field(form.repetition_penalty) }}
+                {{ render_text_field(form.chunk_size) }}
+                {{ render_text_field(form.chunk_overlap) }}
+                {{ render_text_field(form.top_k) }}
+                <div>
+                    {{ form.submit(class_="button button--form")}}
+                </div> 
+            </div>      
+        </form>
+    </div>
+
+    <div class="elements__explaination">
+        <div class="temperature__explaination">
+            <h3>temprature</h3>
+            <p>explaination of temprature</p>
+        </div>
+        <div class="max_new_tokens__explaination">
+            <h3>max_new_tokens</h3>
+            <p>explaination of max_new_tokens</p>
+        </div>
+        <div class="top_p__explaination">
+            <h3>top_p</h3>
+            <p>explaination of top_p</p>
+        </div>
+        <div class="repetition_penalty__explaination">
+            <h3>repetition_penalty</h3>
+            <p>explaination of repetition_penalty</p>
+        </div>
+        <div class="chunk_size__explaination">
+            <h3>chunk_size</h3>
+            <p>explaination of chunk_size</p>
+        </div>
+        <div class="chunk_overlap__explaination">
+            <h3>chunk_overlap</h3>
+            <p>explaination of chunk_overlap</p>
+        </div>
+        <div class="top_k__explaination">
+            <h3>top_k</h3>
+            <p>explaination of top_k</p>
+        </div>
+    </div>
+{% endblock %}
