@@ -17,7 +17,14 @@ Techniques:
 - using RAG(Retrieval-Augmented Generation ) to get top-k most relevant story plots from story.txt or uploaded PDF files 
 - using Mistral 7b model to generate a story
 
+## Web Application Screenshots
+<img src="https://github.com/ying-i/story-generation/blob/main/app-screenshot1.png" width="800"/>
 
+<img src="https://github.com/ying-i/story-generation/blob/main/app-screenshot2.png" width="800"/>
+
+<img src="https://github.com/ying-i/story-generation/blob/main/app-screenshot3.png" width="800"/>
+
+<img src="https://github.com/ying-i/story-generation/blob/main/app-screenshot4.png" width="800"/>
 
 
 
