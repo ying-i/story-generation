@@ -3,7 +3,7 @@
 We first create our gradio apps on Hugging Face Spaces, and then use the gradio_client Python library to query our gradio apps.
 The following are the gradio apps links:
 
-- RAG-2 is using story.txt for RAG : https://huggingface.co/spaces/yiyii/RAG-2
+- RAG-2 is using story.txt for RAG : https://huggingface.co/spaces/yiyii/RAG
 - RAG-3 is using uploaded PDFs for RAG: https://huggingface.co/spaces/yiyii/RAG-3
 
 
