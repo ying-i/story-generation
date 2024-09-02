@@ -3,7 +3,7 @@
 We first created our Gradio apps and hosted them on Hugging Face Spaces. Then, we queried the created Gradio apps within our Flask web application, which managed the backend operations including interaction with MongoDB database for data persistence.
 The following are the gradio apps links:
 
-- RAG-2 is using story.txt for RAG : https://huggingface.co/spaces/yiyii/RAG
+- RAG is using story.txt for RAG : https://huggingface.co/spaces/yiyii/RAG
 - RAG-3 is using uploaded PDFs for RAG: https://huggingface.co/spaces/yiyii/RAG-3
 
 
