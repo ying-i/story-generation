@@ -1,6 +1,6 @@
 ## Web Application Architecture
 <img src="https://github.com/ying-i/story-generation/blob/main/web%20application%20%20(4).jpg" width="700"/>
-We first created our Gradio apps and hosted them on Hugging Face Spaces. Then, we queried the created Gradio apps within our Flask web application, which managed the backend operations including interaction with MongoDB database for data persistence.
+A web application that can generate a story based on uploaded face image. We first created our Gradio apps and hosted them on Hugging Face Spaces. Then, we queried the created Gradio apps within our Flask web application, which managed the backend operations including interaction with MongoDB database for data persistence.
 The following are the gradio apps links:
 
 - RAG is using story.txt for RAG : https://huggingface.co/spaces/yiyii/RAG
