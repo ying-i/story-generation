@@ -26,9 +26,10 @@ Techniques:
 
 <img src="https://github.com/ying-i/story-generation/blob/main/app-screenshot4.png" width="800"/>
 
-
-
-
+## Abstract
+Our work presents an approach to automated story generation by integrating facial expression analysis and retrieval of existing stories with
+a Large Language Model. The system utilizes the DeepFace framework to analyze facial attributes such as emotion, age, gender from an
+input face image, and also it uses BLIP model to generate an image caption. These elements, combined with retrieved plots from an external knowledge base using Retrieval Augmented Generation (RAG), are then fed into the Mistral 7B language model to generate a story. Our results show that including the emotion factor leads to more emotion-related words in generated stories. However, incorporating the emotion factor in story generation is not always beneficial to all metrics (Fluency, Coherency, Relevance, Emotional Resonance, and Likability). Similarly, inclusion of retrieved plots helps to increase the length of generated stories, but this does not always positively impact all metrics (Fluency, Coherency, Relevance, Plot Appeal, and Likability).
 
 
 
